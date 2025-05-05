@@ -8,8 +8,7 @@ import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 function Page() {
-  const params = useParams()
-  const { productId } = params
+  const { productId } = useParams() as { productId: string }
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState<productType>({
     id: 0,
@@ -18,7 +17,7 @@ function Page() {
     category: "",
     description: "",
     image: "",
-    quantity:0,
+    quantity: 0,
     rating: {
       rate: 0,
       count: 0
@@ -39,8 +38,10 @@ function Page() {
   }
 
   useEffect(() => {
-    fetcher().then((res) => setProduct(res))
-  }, [])
+    fetcher().then((res) => {
+      if (res) setProduct(res)
+    })
+  }, [productId])
 
   return (
     <>

@@ -1,5 +1,4 @@
 import { productType } from '@/producttype'
-import Image from 'next/image'
 import React from 'react'
 import KataImage from './KataImage'
 import Link from 'next/link'

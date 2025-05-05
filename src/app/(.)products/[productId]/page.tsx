@@ -3,10 +3,8 @@
 import KataImage from '@/components/KataImage'
 import { productType } from '@/producttype'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-// import ReactStars from 'react-stars'
 
 function Page() {
   const params = useParams()
@@ -42,9 +40,6 @@ function Page() {
     fetcher()
   }, [])
 
-  const stars = ["⭐☆☆☆☆", "⭐⭐☆☆☆", "⭐⭐⭐☆☆", "⭐⭐⭐⭐☆", "⭐⭐⭐⭐⭐"]
-  const rete = Math.max(0, Math.min(4, Math.round(product?.rating.rate) - 1)) // защита от выхода за пределы массива
-
 
   const handleClick = () => {
     const products = JSON.parse(localStorage.getItem("carts") as string) || []
@@ -71,9 +66,9 @@ function Page() {
       });
 
       console.log(updatedProducts);
-      localStorage.setItem("carts" , JSON.stringify(updatedProducts))
+      localStorage.setItem("carts", JSON.stringify(updatedProducts))
     } else {
-      const data = [...products, {...product , quantity:1}]
+      const data = [...products, { ...product, quantity: 1 }]
       localStorage.setItem("carts", JSON.stringify(data))
     }
 
@@ -97,12 +92,9 @@ function Page() {
       ) : (
         <div className="fixed inset-0 backdrop-blur-3xl bg-white/30 flex items-center justify-center px-4 py-6 z-50">
           <div className="w-full max-w-[1000px] bg-white shadow-lg rounded-xl p-6 flex flex-col md:flex-row gap-6 overflow-y-auto max-h-[90vh]">
-            {/* Image Section */}
             <div className='w-full md:w-1/2 relative h-[300px] sm:h-[400px] md:h-[500px] shadow rounded-md overflow-hidden'>
               <KataImage product={product} fillValue={true} />
             </div>
-
-            {/* Content Section */}
             <div className='w-full md:w-1/2 flex flex-col justify-between'>
               <div className='flex flex-col gap-4'>
                 <h1 className='font-extrabold text-2xl sm:text-3xl md:text-4xl line-clamp-3'>
@@ -114,7 +106,6 @@ function Page() {
 
                 <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
                   <p className="font-medium">
-                    {/* {product?.rating.rate}, <ReactStars count={product?.rating.rate} size={24} edit={false} /> */}
                   </p>
                   <p className="text-blue-600 cursor-pointer underline">
                     See all {product?.rating.count} reviews
@@ -125,8 +116,6 @@ function Page() {
                   {product?.description}
                 </p>
               </div>
-
-              {/* Buttons */}
               <div className='flex flex-col sm:flex-row gap-3 mt-6'>
 
                 <button

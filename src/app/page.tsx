@@ -3,7 +3,6 @@ import FooterdanSalTeparoqTurganNarsa from "@/components/FooterdanSalTeparoqTurg
 import FooterniOzi from "@/components/FooterniOzi";
 import Hero from "@/components/Hero";
 import ProductsList from "@/components/ProductsList";
-import Image from "next/image";
 
 export default function Home() {
   return (
