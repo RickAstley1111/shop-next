@@ -72,7 +72,7 @@ function Page() {
               <p className="text-sm sm:text-base text-gray-700 text-center lg:text-left">
                 {product.description}
               </p>
-              <Link href="/" className="text-indigo-600 underline text-center lg:text-left mt-2">Go back</Link>
+              <Link href="/" className="text-indigo-600 underline text-center lg:text-left mt-2">ortga qaytish</Link>
             </div>
           </div>
         </div>

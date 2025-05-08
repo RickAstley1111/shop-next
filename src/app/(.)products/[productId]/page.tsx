@@ -3,6 +3,7 @@
 import KataImage from '@/components/KataImage'
 import { productType } from '@/producttype'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -124,9 +125,12 @@ function Page() {
                   See details
                 </button>
 
-                <button onClick={() => handleClick()} className='w-full sm:w-auto border-blue-600 border p-2 rounded bg-blue-600 font-bold text-white hover:bg-transparent hover:text-blue-600 transition'>
-                  add to cart
-                </button>
+                <Link href={"/"}>
+                  <button className='w-full sm:w-auto border-blue-600 border p-2 rounded bg-blue-600 font-bold text-white hover:bg-transparent hover:text-blue-600 transition'>
+                  ortga qaytish
+                  </button>
+                </Link>
+
 
               </div>
             </div>
