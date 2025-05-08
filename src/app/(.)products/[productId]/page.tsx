@@ -39,42 +39,10 @@ function Page() {
       }
     }
     fetcher()
-  }, [])
-
-
-  const handleClick = () => {
-    const products = JSON.parse(localStorage.getItem("carts") as string) || []
+  }, [productId])
 
 
 
-
-
-    const ExsitedProduct = products.find(
-      (el: productType) => el.id === product?.id
-    )
-
-
-    if (ExsitedProduct) {
-      const updatedProducts = products.map((el: productType) => {
-        if (el.id == product?.id) {
-          return {
-            ...el,
-            quantity: el.quantity + 1
-          }
-        } else {
-          return el
-        }
-      });
-
-      console.log(updatedProducts);
-      localStorage.setItem("carts", JSON.stringify(updatedProducts))
-    } else {
-      const data = [...products, { ...product, quantity: 1 }]
-      localStorage.setItem("carts", JSON.stringify(data))
-    }
-
-    console.log(products);
-  }
 
   return (
     <>
