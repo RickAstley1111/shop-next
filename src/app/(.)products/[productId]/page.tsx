@@ -40,7 +40,7 @@ function Page() {
       }
     }
     fetcher()
-  }, [productId])
+  }, [productId ])
 
   const handleClick = () => {
     const products = JSON.parse(localStorage.getItem("carts") as string) || [];

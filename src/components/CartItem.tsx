@@ -1,5 +1,4 @@
 'use client'
-import { productType } from '@/producttype'
 import React from 'react'
 
 function CartItem({ product, handleDelete, handleIncrement, handleDecrement }: any) {

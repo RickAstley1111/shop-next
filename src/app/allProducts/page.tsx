@@ -1,6 +1,5 @@
 import EndiAnniqFooter from '@/components/EndiAnniqFooter'
 import FooterdanSalTeparoqTurganNarsa from '@/components/FooterdanSalTeparoqTurganNarsa'
-import FooterniOzi from '@/components/FooterniOzi'
 import ProductsList from '@/components/ProductsList'
 import React from 'react'
 

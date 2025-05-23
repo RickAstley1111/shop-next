@@ -1,7 +1,7 @@
 import React from 'react'
 
 const page = () => {
-    return (//41.23424105249203, 69.21565530796619
+    return (
         <div>
             <section className="text-gray-600 body-font relative">
                 <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
