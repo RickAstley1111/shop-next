@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 function Page() {
   const params = useParams()
@@ -41,8 +42,26 @@ function Page() {
     fetcher()
   }, [productId])
 
+  const handleClick = () => {
+    const products = JSON.parse(localStorage.getItem("carts") as string) || [];
 
+    const existedProduct = products.find(
+      (el: productType) => el.id == product?.id
+    );
 
+    if (existedProduct) {
+      const updatedProducts = products.map((el: productType) =>
+        el.id == product?.id ? { ...el, quantity: el.quantity + 1 } : el
+      );
+      localStorage.setItem("carts", JSON.stringify(updatedProducts));
+    } else {
+      const data = [...products, { ...product, quantity: 1 }];
+
+      localStorage.setItem("carts", JSON.stringify(data));
+    }
+
+    toast.success("maxsulot savatga qoshildi")
+  }
 
   return (
     <>
@@ -87,17 +106,19 @@ function Page() {
               </div>
               <div className='flex flex-col sm:flex-row gap-3 mt-6'>
 
-                <button
-                  className='w-full sm:w-auto border-blue-600 border p-2 rounded bg-blue-600 font-bold text-white hover:bg-transparent hover:text-blue-600 transition'
-                  onClick={() => window.location.reload()}>
-                  See details
-                </button>
-
                 <Link href={"/"}>
-                  <button className='w-full sm:w-auto border-blue-600 border p-2 rounded bg-blue-600 font-bold text-white hover:bg-transparent hover:text-blue-600 transition'>
-                  ortga qaytish
+                  <button
+                    className='w-full sm:w-auto border-blue-600 border p-2 rounded bg-blue-600 font-bold text-white hover:bg-transparent hover:text-blue-600 transition'>
+                    ortga qaytish
                   </button>
                 </Link>
+
+
+
+                <button onClick={handleClick} className='w-full sm:w-auto border-blue-600 border p-2 rounded bg-blue-600 font-bold text-white hover:bg-transparent hover:text-blue-600 transition'>
+                  savatga qoshish
+                </button>
+
 
 
               </div>

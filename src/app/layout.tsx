@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { ToastContainer } from "react-toastify";
 
 const montserrat = Montserrat({
   display:"swap",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={`${montserrat.className} antialiased`}>
         <Header/>
         {children}
+        <ToastContainer autoClose={3000}/>
       </body>
     </html>
   );
